@@ -66,6 +66,7 @@
     align-items: center;
     max-width: 800px;
     margin: auto;
+    margin-top: 50px;
     padding: 2em;
     background: #f9f9f9;
     border-radius: 8px;
