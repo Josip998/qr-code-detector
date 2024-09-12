@@ -5,6 +5,8 @@ import Upload from '../views/Upload.vue';
 import UserProfile from '../views/UserProfile.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
+import About from '../views/About.vue';
+
 
 
 const routes = [
@@ -12,7 +14,9 @@ const routes = [
     { path: '/upload', name: 'Upload', component: Upload, meta: { requiresAuth: true } },
     { path: '/profile', name: 'UserProfile', component: UserProfile, meta: { requiresAuth: true } },
     { path: '/login', name: 'Login', component: Login },
-    { path: '/register', name: 'Register', component: Register }
+    { path: '/register', name: 'Register', component: Register },
+    { path: '/about', name: 'About', component: About }
+
   ];
   
 

@@ -1,49 +1,54 @@
 <template>
-    <div class="container">
-      <h2>Login</h2>
-      <form @submit.prevent="login">
-        <div class="input-fileds">
-          <label for="email">Email:</label>
-          <input type="email" v-model="email" required />
-        </div>
-        <div class="input-fileds">
-          <label for="password">Password:</label>
-          <input type="password" v-model="password" required />
-        </div>
-        <button type="submit">Login</button>
-        <p v-if="error">{{ error }}</p>
-      </form>
-    </div>
-  </template>
-  
-  <script>
-  import { ref } from 'vue';
-  import { auth, signInWithEmailAndPassword } from '../firebase';
-  import { useRouter } from 'vue-router';
-  
-  export default {
-    setup() {
-      const email = ref('');
-      const password = ref('');
-      const error = ref('');
-      const router = useRouter();
-  
-      const login = async () => {
-        try {
-          // Ensure you pass the auth instance along with email and password
-          await signInWithEmailAndPassword(auth, email.value, password.value);
-          router.push('/profile'); // Redirect to profile or another page upon successful login
-        } catch (e) {
-          error.value = e.message;
-        }
-      };
-  
-      return { email, password, error, login };
-    }
-  };
-  </script>
+  <div class="container">
+    <h2>Login</h2>
+    <form @submit.prevent="login">
+      <div class="input-fields">
+        <label for="email">Email:</label>
+        <input type="email" v-model="email" required />
+      </div>
+      <div class="input-fields">
+        <label for="password">Password:</label>
+        <input type="password" v-model="password" required />
+      </div>
+      <button type="submit">Login</button>
+      <p v-if="error">{{ error }}</p>
+    </form>
 
-<style lang="css" scoped>
+    <!-- "No account? Register here" link -->
+    <p class="register-link">
+      No account? <router-link to="/register">Register here</router-link>.
+    </p>
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+import { auth, signInWithEmailAndPassword } from '../firebase';
+import { useRouter } from 'vue-router';
+
+export default {
+  setup() {
+    const email = ref('');
+    const password = ref('');
+    const error = ref('');
+    const router = useRouter();
+
+    const login = async () => {
+      try {
+        // Ensure you pass the auth instance along with email and password
+        await signInWithEmailAndPassword(auth, email.value, password.value);
+        router.push('/profile'); // Redirect to profile or another page upon successful login
+      } catch (e) {
+        error.value = e.message;
+      }
+    };
+
+    return { email, password, error, login };
+  }
+};
+</script>
+
+<style scoped>
 .container {
   display: flex;
   flex-direction: column;
@@ -63,7 +68,7 @@ form {
   max-width: 400px;
 }
 
-.input-fileds {
+.input-fields {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
@@ -95,8 +100,26 @@ button {
   transition: background-color 0.3s;
 }
 
+button:hover {
+  background-color: #2b7d55;
+}
 
+.register-link {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.register-link a {
+  color: #369f6c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
 </style>
+
 
   
   

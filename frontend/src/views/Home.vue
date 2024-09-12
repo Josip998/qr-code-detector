@@ -1,7 +1,8 @@
 <template>
     <div class="home-container">
-      <h1>Home</h1>
-      <h2>Welcome to our QR Code Detector app</h2>
+      <h1>Welcome to QR Code detector!</h1>
+      <h3>How does it work?</h3>
+      <p>Upload an image that contains a QR Code and our app will find it and scan it for you!</p>
       <router-link to="/upload" class="upload-link">Upload Image</router-link>
 
     </div>

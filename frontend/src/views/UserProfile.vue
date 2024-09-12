@@ -1,7 +1,6 @@
 <template>
     <div class="container">
       <h1>User Profile</h1>
-      <button @click="logout">Logout</button>
       <div v-if="scans.length" class="container-for-items">
         <h2>Your Scans:</h2>
         <ul>
@@ -100,7 +99,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 0px;
   border: 1px solid #ddd; 
   border-radius: 8px; 
   padding: 16px; 
