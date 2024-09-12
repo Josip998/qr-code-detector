@@ -1,7 +1,10 @@
 <template>
     <div class="upload-container">
       <h1>Upload QR Code Image</h1>
-      <input type="file" @change="handleFileUpload" class="file-input" />
+      <div>
+        <input type="file" id="file-upload" class="file-input" @change="handleFileUpload" />
+        <label for="file-upload" class="custom-file-input">Choose File</label>
+      </div>
       <div v-if="qrCodes.length" class="qr-codes">
         <h2>Detected QR Codes:</h2>
         <ul>
@@ -57,6 +60,10 @@
   
   <style scoped>
   .upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 800px;
     margin: auto;
     padding: 2em;
@@ -64,6 +71,12 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  ul {
+      list-style-type: none; 
+      padding: 0; 
+      margin: 0; 
+    }
   
   h1 {
     text-align: center;
@@ -71,11 +84,56 @@
   }
   
   .file-input {
-    display: block;
-    margin: 1em auto;
+    /* display: block;
+    margin: 1em auto; */
+    display: none;
   }
+
+  .custom-file-input {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #369f6c;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .custom-file-input:hover {
+      background-color: #16662a;
+    }
+
+    .custom-file-input:active {
+      background-color: #16662a;
+    }
+
+    /* This makes sure the label is styled */
+    .file-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .file-container label {
+      cursor: pointer;
+    }
+
+    .qr-codes {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      border: 1px solid #ddd; 
+      border-radius: 8px; 
+      padding: 16px; 
+      margin-bottom: 16px; 
+      background-color: #f9f9f9; 
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    }
   
-  .qr-codes {
+  /* .qr-codes {
     margin-top: 2em;
   }
   
@@ -100,7 +158,7 @@
     height: auto;
     display: block;
     margin-top: 0.5em;
-  }
+  } */
   </style>
   
   

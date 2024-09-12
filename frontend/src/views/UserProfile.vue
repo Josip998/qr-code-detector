@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="container">
       <h1>User Profile</h1>
       <button @click="logout">Logout</button>
-      <div v-if="scans.length">
+      <div v-if="scans.length" class="container-for-items">
         <h2>Your Scans:</h2>
         <ul>
-          <li v-for="(scan, index) in scans" :key="index">
+          <li v-for="(scan, index) in scans" :key="index" class="items-container">
             <p><strong>QR Code URL:</strong> {{ scan.data }}</p>
             <p><strong>Date:</strong> {{ formatDate(scan.timestamp) }}</p>
             <!-- Display the image -->
@@ -70,6 +70,54 @@
   </script>
   
   <style scoped>
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+      list-style-type: none; 
+      padding: 0; 
+      margin: 0; 
+    }
+
+button {
+  padding: 10px;
+  background-color: #369f6c;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.container-for-items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  padding: 16px; 
+  margin-bottom: 16px; 
+  background-color: #f9f9f9; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.items-container {
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  padding: 16px; 
+  margin-bottom: 16px; 
+  background-color: #f9f9f9; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
   .user-profile-container {
     max-width: 800px;
     margin: auto;

@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="container">
       <h2>Login</h2>
       <form @submit.prevent="login">
-        <div>
+        <div class="input-fileds">
           <label for="email">Email:</label>
           <input type="email" v-model="email" required />
         </div>
-        <div>
+        <div class="input-fileds">
           <label for="password">Password:</label>
           <input type="password" v-model="password" required />
         </div>
@@ -42,6 +42,62 @@
     }
   };
   </script>
+
+<style lang="css" scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  font-size: 2rem;
+}
+
+form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.input-fileds {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  transition: border-color 0.3s;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+input:focus {
+  border:none;
+  outline:none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #369f6c;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+</style>
+
   
   
   
