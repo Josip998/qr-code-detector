@@ -17,6 +17,7 @@
   .home-container {
     max-width: 600px;
     margin: auto;
+    margin-top: 50px;
     padding: 2em;
     text-align: center;
     background: #f9f9f9;
